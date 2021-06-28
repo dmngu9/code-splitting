@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { StyledP } from './styles'
+import loadable from '@loadable/component'
 
-const About = () => (
-  <>
-    <StyledP>This is about page. I will introduce code splitting to you</StyledP>
-    <div><Link to="/">Home</Link></div>
-    <Link to="/contact">Contact</Link>
-  </>
+const About = loadable(() => import('./About'), {
+  fallback: <div>Loading</div>
+})
+
+const AboutLoadable = () => (
+  <About />
 )
 
-export default About
+export default AboutLoadable
+

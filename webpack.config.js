@@ -2,7 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    app: { import: './src/index.tsx', dependOn: ['vendors'] },
+    vendors: ['react', 'react-dom', 'react-router-dom', 'styled-components']
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].bundle.js',

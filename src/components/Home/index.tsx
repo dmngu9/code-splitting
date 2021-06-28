@@ -1,13 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { StyledP } from './styles'
+import loadable from '@loadable/component'
 
-const Home = () => (
-  <>
-    <StyledP>This is home page</StyledP>
-    <div><Link to="/about">About</Link></div>
-    <Link to="/contact">Contact</Link>
-  </>
-)
+const Home = loadable(() => import('./Home'), {
+  fallback: <div>Loading</div>
+})
 
-export default Home
+const HomeLoadable = () => <Home />
+
+export default HomeLoadable
+

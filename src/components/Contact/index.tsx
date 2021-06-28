@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { StyledP } from './styles'
+import loadable from '@loadable/component'
 
-const Contact = () => (
-  <>
-    <StyledP>This is contact page. You can see this code on my Github</StyledP>
-    <div><Link to="/">Home</Link></div>
-    <Link to="/about">About</Link>
-  </>
+const Contact = loadable(() => import('./Contact'), {
+  fallback: <div>Loading</div>
+})
+
+const ContactLoadable = () => (
+  <Contact />
 )
 
-export default Contact
+export default ContactLoadable
+
