@@ -37,6 +37,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-cheap-source-map',
   devServer: {
+    historyApiFallback: true,
     contentBase: path.join(__dirname, 'dist'),
     port: 3000,
     compress: true,
